@@ -1,12 +1,13 @@
+import Layout from '../components/Layout'
 import Intro from '../components/Intro'
 import Counter from '../components/Counter'
 
 const Index: React.FC = () => {
   return (
-    <div>
-      <Intro />
+    <Layout>
+      <Intro showIcon />
       <Counter initialCount={26} />
-    </div>
+    </Layout>
   )
 }
 export default Index
