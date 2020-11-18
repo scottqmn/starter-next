@@ -1,4 +1,10 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": true
+  },
   "plugins": ["react", "react-hooks"],
   "extends": [
     "eslint:recommended",
@@ -13,6 +19,7 @@
     "prettier/react"
   ],
   "rules": {
+    "strict": 0,
     "import/extensions": [
       "error",
       "ignorePackages",
