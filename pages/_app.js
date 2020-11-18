@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import Router from "next/router";
 import Head from "next/head";
+import "normalize.css";
+import "../styles/globals.css";
 import * as gtag from "../utils/gtag";
 import metadata from "../constants/metadata";
-import "../styles/globals.css";
 
 Router.events.on("routeChangeComplete", (url) => gtag.pageview(url));
 
