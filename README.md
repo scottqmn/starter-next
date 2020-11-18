@@ -1,4 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a template for Next.js projects with:
+
+- Mixed .jsx/.tsx files (with PropTypes/TS respectively)
+- CSS/SCSS modules
+- Prettier formatting
+- ESlint (separate configurations for .jsx/.tsx: babel-eslint, @typescript-eslint)
 
 ## Getting Started
 
@@ -14,14 +19,21 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+## Make it your own
 
-To learn more about Next.js, take a look at the following resources:
+- Remove
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  - [] Demo components (Intro, Counter)
+  - [] Demo assets (`public/settings.svg`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Update
+  - [] `constants/metadata.js`
+  - [] `utils/gtag.js`
+  - [] `public/favicon.ico`
+  - [] `public/meta_image.jpg`
+  - [] `styles/globals.css`
+  - [] `styles/typography.scss`
+  - [] `pages/_document.js`
 
 ## Deploy on Vercel
 
