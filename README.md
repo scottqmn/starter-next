@@ -21,19 +21,18 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 ## Make it your own
 
-- Remove
+- Remove:
+  - [ ] Demo components (Intro, Counter)
+  - [ ] Demo assets (`public/settings.svg`)
 
-  - [] Demo components (Intro, Counter)
-  - [] Demo assets (`public/settings.svg`)
-
-- Update
-  - [] `constants/metadata.js`
-  - [] `utils/gtag.js`
-  - [] `public/favicon.ico`
-  - [] `public/meta_image.jpg`
-  - [] `styles/globals.css`
-  - [] `styles/typography.scss`
-  - [] `pages/_document.js`
+- Update:
+  - [ ] `constants/metadata.js`
+  - [ ] `utils/gtag.js`
+  - [ ] `public/favicon.ico`
+  - [ ] `public/meta_image.jpg`
+  - [ ] `styles/globals.css`
+  - [ ] `styles/typography.scss`
+  - [ ] `pages/_document.js`
 
 ## Deploy on Vercel
 
