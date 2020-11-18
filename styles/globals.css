@@ -1,13 +1,15 @@
 :root {
   --primary: #000000;
   --background: #ffffff;
+  --sans-serif: "Lato", Helvetica Neue, Arial, sans-serif;
+  --serif: "Noto Serif", Times New Roman, serif;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: var(--sans-serif);
   color: var(--primary);
   background: var(--background);
 }
