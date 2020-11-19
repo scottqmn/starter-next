@@ -20,6 +20,7 @@
   ],
   "rules": {
     "strict": 0,
+    "camelcase": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -32,6 +33,7 @@
     ],
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": 0,
+    "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": [
       1,
       { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
