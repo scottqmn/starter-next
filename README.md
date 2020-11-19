@@ -22,10 +22,12 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 ## Make it your own
 
 - Remove:
+
   - [ ] Demo components (Intro, Counter)
   - [ ] Demo assets (`public/settings.svg`)
 
 - Update:
+
   - [ ] `constants/metadata.js`
   - [ ] `utils/gtag.js`
   - [ ] `public/favicon.ico`
@@ -33,6 +35,12 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
   - [ ] `styles/globals.css`
   - [ ] `styles/typography.scss`
   - [ ] `pages/_document.js`
+
+- Prismic CMS (optional):
+
+  - [ ] Merge in branch `prismic`
+  - [ ] Copy `.env.local.sample` and update `PRISMIC_ACCESS_TOKEN`
+  - [ ] Update api endpoint in `prismic-configuration.js`
 
 ## Deploy on Vercel
 
