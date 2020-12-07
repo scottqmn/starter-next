@@ -1,7 +1,7 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
-import { linkResolver } from '../../prismic-configuration'
-import { prismicRichTextPropType } from '../../types/prismic'
+import { linkResolver } from '../../utils/prismic'
+import { prismicRichTextPropType } from '../../prop-types/prismic'
 
 const PrismicRichText = ({ content }) => {
   // TODO: serialize custom links? https://prismic.io/docs/reactjs/rendering/rich-text

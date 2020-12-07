@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { prismicLinkPropType } from '../../types/prismic'
+import { prismicLinkPropType } from '../../prop-types/prismic'
 
 const PrismicLink = ({ children, Component, href, link, ...props }) => {
   const AnchorComponent = Component || 'a'
