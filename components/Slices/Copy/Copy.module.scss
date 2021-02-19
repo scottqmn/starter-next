@@ -1,0 +1,15 @@
+.inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.copy {
+    margin-top: 30px;
+    color: var(--primary65);
+}
+
+.cta {
+    margin-top: 30px;
+}

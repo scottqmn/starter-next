@@ -1,0 +1,36 @@
+@import './breakpoints';
+
+.outer {
+    max-width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.inner {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &--xs {
+        @extend .inner;
+        max-width: 420px;
+    }
+
+    &--sm {
+        @extend .inner;
+        max-width: 600px;
+    }
+}
+
+.section {
+    min-height: 300px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    @media (min-width: $md) {
+        min-height: 500px;
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}

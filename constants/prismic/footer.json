@@ -1,0 +1,67 @@
+{
+    "Main": {
+        "name": {
+            "type": "Text",
+            "config": {
+                "label": "Name",
+                "useAsTitle": true
+            }
+        },
+        "title": {
+            "type": "Text",
+            "config": {
+                "label": "Title"
+            }
+        },
+        "social": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "icon": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Icon"
+                        }
+                    },
+                    "link_text": {
+                        "type": "Text",
+                        "config": {
+                            "label": "Link Text"
+                        }
+                    },
+                    "link": {
+                        "type": "Link",
+                        "config": {
+                            "allowTargetBlank": true,
+                            "label": "Link"
+                        }
+                    }
+                },
+                "label": "Social"
+            }
+        },
+        "links": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "link": {
+                        "type": "Link",
+                        "config": {
+                            "allowTargetBlank": true,
+                            "label": "Link"
+                        }
+                    },
+                    "link_text": {
+                        "type": "Text",
+                        "config": {
+                            "label": "Link Text"
+                        }
+                    }
+                },
+                "label": "Links"
+            }
+        }
+    }
+}

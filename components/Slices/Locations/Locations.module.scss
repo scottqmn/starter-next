@@ -1,0 +1,52 @@
+@import '../../../styles/breakpoints';
+
+.location {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 'name' 'map' 'info';
+
+    @media (min-width: $md) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: min-content 1fr;
+        grid-template-areas:
+            'name map'
+            'info map';
+    }
+
+    &:not(:first-child) {
+        margin-top: 60px;
+    }
+}
+
+.name {
+    grid-area: name;
+}
+
+.info {
+    position: relative;
+    grid-area: info;
+}
+
+.icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.map {
+    position: relative;
+    grid-area: map;
+    width: 100%;
+    height: 0;
+    padding-bottom: 65%;
+}
+
+.mapInner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,28 +1,35 @@
-import Prismic from 'prismic-javascript'
+import Prismic from '@prismicio/client'
 
-export const apiEndpoint = 'https://...'
+export const apiEndpoint = 'https://hansum.cdn.prismic.io/api/v2'
 export const accessToken = process.env.PRISMIC_ACCESS_TOKEN
 
-const createClientOptions = (req = null, prismicAccessToken = null) => {
-  const reqOption = req ? { req } : {}
-  const accessTokenOption = prismicAccessToken
-    ? { accessToken: prismicAccessToken }
-    : {}
-  return {
-    ...reqOption,
-    ...accessTokenOption,
-  }
+export const createClientOptions = (req = null, prismicAccessToken = null) => {
+    const reqOption = req ? { req } : {}
+    const accessTokenOption = prismicAccessToken
+        ? { accessToken: prismicAccessToken }
+        : {}
+    return {
+        ...reqOption,
+        ...accessTokenOption,
+    }
 }
+
 // Client method to query documents from the Prismic repo
 export const Client = (req = null) =>
-  Prismic.client(apiEndpoint, createClientOptions(req, accessToken))
+    Prismic.client(apiEndpoint, createClientOptions(req, accessToken))
+
+export const { Predicates } = Prismic
 
 export const linkResolver = (doc) => {
-  // URL for 'page' posts
-  // if (doc.type === 'page') {
-  //   return `/page/${doc.uid}`
-  // }
+    // URL for 'page' posts
+    switch (doc.type) {
+        case 'page':
+            return doc.uid === 'index' ? '/' : `/${doc.uid}`
+        default:
+            // eslint-disable-next-line no-console
+            console.warn('no linkResolver case:', doc)
+    }
 
-  // Backup for all other types
-  return '/'
+    // Backup for all other types
+    return '/'
 }

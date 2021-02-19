@@ -1,0 +1,28 @@
+{
+    "Main": {
+        "title": {
+            "type": "Text",
+            "config": {
+                "label": "Name"
+            }
+        },
+        "primary": {
+            "type": "Color",
+            "config": {
+                "label": "Primary"
+            }
+        },
+        "background": {
+            "type": "Color",
+            "config": {
+                "label": "Background"
+            }
+        },
+        "detail": {
+            "type": "Color",
+            "config": {
+                "label": "Detail"
+            }
+        }
+    }
+}

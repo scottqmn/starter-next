@@ -1,13 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react'
-import t from 'typy'
 import { prismicImagePropType } from '../../prop-types/prismic'
 
-const PrismicImage = ({ content, ...props }) =>
-  t(content, 'url').isDefined && (
-    <img {...props} src={content.url} alt={content.alt} />
-  )
+const Image = ({ image, ...props }) => {
+    return image?.url ? (
+        <img {...props} src={image.url} alt={image.alt} />
+    ) : null
+}
 
-PrismicImage.propTypes = { content: prismicImagePropType }
+Image.propTypes = { image: prismicImagePropType }
 
-export default PrismicImage
+export default Image

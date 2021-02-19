@@ -1,0 +1,50 @@
+.button {
+    padding: 5px 2px;
+}
+
+.bars {
+    position: relative;
+    width: 26px;
+    height: 20px;
+
+    span {
+        position: absolute;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+        transition: all 0.2s;
+    }
+
+    &.isOpen {
+        .top,
+        .bottom {
+            opacity: 0;
+        }
+
+        .mid1 {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .mid2 {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+}
+
+.top,
+.bottom {
+    transform: translateX(-50%);
+}
+
+.top {
+    top: 0;
+}
+.mid1,
+.mid2 {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom {
+    bottom: 0;
+}

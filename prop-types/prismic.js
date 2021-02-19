@@ -1,33 +1,39 @@
 import PropTypes from 'prop-types'
 
 export const prismicQueryPropType = PropTypes.shape({
-  data: PropTypes.object,
+    data: PropTypes.object,
 })
 
 export const prismicImagePropType = PropTypes.shape({
-  dimensions: PropTypes.object,
-  alt: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+    dimensions: PropTypes.object,
+    alt: PropTypes.string,
+    url: PropTypes.string,
 })
 
 export const prismicLinkPropType = PropTypes.shape({
-  link_type: PropTypes.oneOf(['Web']),
-  target: PropTypes.string,
-  url: PropTypes.string,
+    link_type: PropTypes.oneOf(['Web', 'Document']),
+    target: PropTypes.string,
+    url: PropTypes.string,
 })
 
 export const prismicRichTextPropType = PropTypes.arrayOf(
-  PropTypes.shape({
-    spans: PropTypes.array,
-    text: PropTypes.string,
-    type: PropTypes.string,
-  })
+    PropTypes.shape({
+        spans: PropTypes.array,
+        text: PropTypes.string,
+        type: PropTypes.string,
+    })
 )
 
 export const prismicMediaPropType = PropTypes.shape({
-  link_type: PropTypes.string,
-  name: PropTypes.string,
-  kind: PropTypes.string,
-  url: PropTypes.string.isRequired,
-  size: PropTypes.string,
+    link_type: PropTypes.string,
+    name: PropTypes.string,
+    kind: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    size: PropTypes.string,
 })
+
+export const prismicSliceComponent = {
+    slice_type: PropTypes.string,
+    primary: PropTypes.object,
+    items: PropTypes.any, // TODO: refine
+}

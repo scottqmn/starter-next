@@ -1,0 +1,47 @@
+@import './reset.scss';
+@import './containers.scss';
+@import './typography.scss';
+
+:root {
+    --primary: #000000;
+    --primary80: #000000cc;
+    --primary65: #000000a6;
+    --primary50: #00000080;
+    --background: #ffffff;
+    --detail: #0047a0;
+    --heading: 'Oswald', sans-serif;
+    --body: 'Montserrat', sans-serif;
+}
+
+html,
+body {
+    @extend %body;
+
+    padding: 0;
+    margin: 0;
+    color: var(--primary);
+    background: var(--background);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    fill: currentColor;
+}
