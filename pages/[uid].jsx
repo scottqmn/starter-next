@@ -48,29 +48,20 @@ export const getStaticProps = async (context) => {
     }
 }
 
-export const getStaticPaths = async (context) => {
-    const { locales: nextLocales } = context
-
-    const pageRes = await Client().query(
-        [Predicates.at('document.type', 'page')],
-        {
-            lang: '*',
-        }
-    )
+export const getStaticPaths = async () => {
+    const pageRes = await Client().query([
+        Predicates.at('document.type', 'page'),
+    ])
 
     const uidPaths =
         pageRes.results
             ?.filter(({ uid }) => uid !== 'index')
-            .map(({ uid, lang }) => {
-                const pathLocale = nextLocales.find(
-                    (key) => LOCALES[key] === lang
-                )
-                return { params: { uid }, locale: pathLocale }
+            .map(({ uid }) => {
+                return { params: { uid } }
             }) || []
 
     return {
         paths: uidPaths,
-        // fallback: true,
         fallback: false,
     }
 }

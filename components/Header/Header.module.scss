@@ -75,18 +75,18 @@
     justify-content: center;
     margin-top: 20px;
     margin-left: -16px;
-    color: var(--primary80);
 
     &:hover {
         .link:not(:hover) {
-            color: var(--primary50);
+            opacity: 0.5;
         }
     }
 
     .link {
         position: relative;
         margin-left: 16px;
-        transition: color 0.2s;
+        opacity: 0.8;
+        transition: opacity 0.2s;
 
         &::after {
             content: '';
@@ -116,7 +116,7 @@
                 display: inline-block;
                 width: 2px;
                 height: 100%;
-                background-color: var(--primary);
+                background-color: var(--text);
                 pointer-events: none;
             }
         }

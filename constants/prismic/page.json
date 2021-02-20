@@ -40,8 +40,9 @@
                                 }
                             },
                             "title": {
-                                "type": "Text",
+                                "type": "StructuredText",
                                 "config": {
+                                    "single": "heading1, heading2, heading3, heading4, heading5, heading6",
                                     "label": "Title"
                                 }
                             },
@@ -79,14 +80,15 @@
                             "alignment": {
                                 "type": "Select",
                                 "config": {
-                                    "options": ["left", "center", "right"],
+                                    "options": ["left", "center"],
                                     "default_value": "left",
                                     "label": "Alignment"
                                 }
                             },
                             "title": {
-                                "type": "Text",
+                                "type": "StructuredText",
                                 "config": {
+                                    "single": "heading1, heading2, heading3, heading4, heading5, heading6",
                                     "label": "Title"
                                 }
                             },
@@ -132,8 +134,9 @@
                                 }
                             },
                             "title": {
-                                "type": "Text",
+                                "type": "StructuredText",
                                 "config": {
+                                    "single": "heading1, heading2, heading3, heading4, heading5, heading6",
                                     "label": "Title"
                                 }
                             },

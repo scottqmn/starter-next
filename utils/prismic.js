@@ -1,6 +1,6 @@
 import Prismic from '@prismicio/client'
 
-export const apiEndpoint = 'https://hansum.cdn.prismic.io/api/v2'
+export const apiEndpoint = 'https://sn65.cdn.prismic.io/api/v2'
 export const accessToken = process.env.PRISMIC_ACCESS_TOKEN
 
 export const createClientOptions = (req = null, prismicAccessToken = null) => {

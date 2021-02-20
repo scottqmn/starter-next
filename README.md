@@ -1,9 +1,10 @@
 This is a template for Next.js projects with:
 
-- Mixed .jsx/.tsx files (with PropTypes/TS respectively)
-- CSS/SCSS modules
-- Prettier formatting
-- ESlint (separate configurations for .jsx/.tsx: babel-eslint, @typescript-eslint)
+-   CSS/SCSS modules
+-   Prettier
+-   ESlint
+-   Jest
+-   Prismic CMS
 
 ## Getting Started
 
@@ -11,35 +12,28 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `pages/index.jsx`. The page auto-updates as you edit the file.
 
 ## Make it your own
 
-- Remove:
+-   Update:
 
-  - [ ] Demo components (Intro, Counter)
-  - [ ] Demo assets (`public/settings.svg`)
+    -   [ ] `constants/metadata.js`
+    -   [ ] `utils/gtag.js`
+    -   [ ] `public/favicon.ico`
+    -   [ ] `public/meta_image.jpg`
+    -   [ ] `styles/main.scss`
+    -   [ ] `styles/typography.scss`
+    -   [ ] `pages/_document.js`
 
-- Update:
+-   Prismic CMS:
 
-  - [ ] `constants/metadata.js`
-  - [ ] `utils/gtag.js`
-  - [ ] `public/favicon.ico`
-  - [ ] `public/meta_image.jpg`
-  - [ ] `styles/globals.css`
-  - [ ] `styles/typography.scss`
-  - [ ] `pages/_document.js`
-
-- Prismic CMS:
-
-  - [ ] Copy `.env.local.sample` and update `PRISMIC_ACCESS_TOKEN`
-  - [ ] Update api endpoint in `prismic-configuration.js`
+    -   [ ] Copy `.env.local.sample` and update `PRISMIC_ACCESS_TOKEN`
+    -   [ ] Update api endpoint in `prismic.js`
 
 ## Deploy on Vercel
 

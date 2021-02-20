@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { NextImage } from '../../Prismic'
+import { NextImage, RichText } from '../../Prismic'
 import styles from './Banner.module.scss'
 import { prismicSliceComponent } from '../../../prop-types/prismic'
 
@@ -21,7 +21,9 @@ const Banner = ({ primary }) => {
                     <div className={clsx(styles.label, 't-label')}>{label}</div>
                 )}
                 {title && (
-                    <div className={clsx(styles.title, 't-h1')}>{title}</div>
+                    <div className={clsx(styles.title, 't-title')}>
+                        <RichText content={title} />
+                    </div>
                 )}
                 {subtitle && (
                     <div className={clsx(styles.subtitle, 't-label')}>

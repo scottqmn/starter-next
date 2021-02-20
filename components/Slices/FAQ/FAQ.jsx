@@ -23,7 +23,7 @@ const FAQ = ({ items }) => {
                                 <dt
                                     className={clsx(
                                         styles.question,
-                                        't-h2',
+                                        't-subtitle',
                                         'ta-center'
                                     )}
                                 >

@@ -5,14 +5,14 @@
     width: max-content;
     max-width: 220px;
     padding: 1.4em 1.8em;
-    color: var(--primary);
+    color: var(--text);
     background-color: var(--background);
-    border: 2px solid var(--primary);
+    border: 2px solid var(--text);
     border-radius: 4px;
     transition: color 0.2s, background-color 0.2s;
 
     &:hover {
         color: var(--background);
-        background-color: var(--primary);
+        background-color: var(--text);
     }
 }

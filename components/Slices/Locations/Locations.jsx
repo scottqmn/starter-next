@@ -19,7 +19,7 @@ const Locations = ({ items }) => {
 
                     return (
                         <div key={name} className={styles.location}>
-                            <div className={clsx(styles.name, 't-h2')}>
+                            <div className={clsx(styles.name, 't-subtitle')}>
                                 {name}
                             </div>
                             <div className={clsx(styles.info, 'rte')}>

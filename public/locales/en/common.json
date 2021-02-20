@@ -2,5 +2,8 @@
     "locales": {
         "en": "ENGLISH",
         "ko": "한국어"
+    },
+    "cta": {
+        "read-more": "Read More"
     }
 }

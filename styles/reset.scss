@@ -83,6 +83,7 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
+    font-weight: initial;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -146,4 +147,14 @@ svg {
     width: 100%;
     height: auto;
     fill: currentColor;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
 }

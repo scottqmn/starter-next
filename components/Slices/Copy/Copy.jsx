@@ -12,7 +12,9 @@ const Copy = ({ primary }) => {
         <div className={clsx('outer', alignment === 'center' && 'ta-center')}>
             <div className={clsx(styles.inner, 'inner--xs', 'section')}>
                 {title && (
-                    <div className={clsx(styles.title, 't-h2')}>{title}</div>
+                    <div className={clsx(styles.title, 't-subtitle')}>
+                        <RichText content={title} />
+                    </div>
                 )}
                 {copy && (
                     <div className={clsx(styles.copy, 'rte')}>

@@ -26,7 +26,6 @@
     }
 }
 
-.social,
 .links {
     margin-top: 30px;
 
@@ -35,27 +34,12 @@
     }
 }
 
-.social {
-    &:hover {
-        .socialIcon:not(:hover) {
-            opacity: 0.7;
-        }
-    }
-}
-
-.socialIcon {
-    display: block;
-    width: 20px;
-    height: 20px;
-    transition: opacity 0.2s;
-}
-
 .links {
-    color: var(--primary);
+    color: var(--text);
 
     &:hover {
         .link:not(:hover) {
-            color: var(--primary50);
+            opacity: 0.5;
         }
     }
 }

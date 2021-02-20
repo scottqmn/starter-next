@@ -1,13 +1,17 @@
 import clsx from 'clsx'
-import { NextImage, Button } from '../../Prismic'
+import { useTranslation } from 'react-i18next'
+import { NextImage, Button, RichText } from '../../Prismic'
 import styles from './PageLinks.module.scss'
 import { prismicSliceComponent } from '../../../prop-types/prismic'
+import { asText } from '../../../utils/helpers'
 
-// TODO: default values for cta_text
 const PageLinks = ({ items }) => {
+    const { t } = useTranslation('common')
+    const defaultCtaText = t('cta.read-more')
+
     return (
         <div className='outer'>
-            <div className={clsx(styles.inner, 'inner', 'section')}>
+            <div className={clsx('inner', 'section')}>
                 <div className={styles.itemContainer}>
                     {items?.map((item) => {
                         const {
@@ -17,10 +21,14 @@ const PageLinks = ({ items }) => {
                             image,
                             title,
                         } = item
-                        const hasCTA = cta_link && cta_text
+
+                        const hasCTA = cta_link
 
                         return (
-                            <div key={title} className={styles.itemWrap}>
+                            <div
+                                key={asText(title)}
+                                className={styles.itemWrap}
+                            >
                                 {image && (
                                     <NextImage
                                         image={image}
@@ -28,8 +36,13 @@ const PageLinks = ({ items }) => {
                                     />
                                 )}
                                 {title && (
-                                    <div className={clsx(styles.title, 't-h2')}>
-                                        {title}
+                                    <div
+                                        className={clsx(
+                                            styles.title,
+                                            't-subtitle'
+                                        )}
+                                    >
+                                        <RichText content={title} />
                                     </div>
                                 )}
                                 {description && (
@@ -47,7 +60,7 @@ const PageLinks = ({ items }) => {
                                     <div className={styles.cta}>
                                         <Button
                                             link={cta_link}
-                                            text={cta_text}
+                                            text={cta_text || defaultCtaText}
                                         />
                                     </div>
                                 )}

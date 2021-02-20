@@ -10,48 +10,13 @@ import Layout from '../components/Layout'
 import * as gtag from '../utils/gtag'
 import '../utils/i18n'
 import { Client, Predicates } from '../utils/prismic'
-import LOCALES from '../constants/locales'
 import METADATA from '../constants/metadata'
 
 // Router.events.on('routeChangeComplete', (url) => gtag.pageview(url))
 
 function App({ Component, pageProps }) {
-    const { layout, theme, ...otherProps } = pageProps
+    const { layout, ...otherProps } = pageProps
 
-    useEffect(() => {
-        // primary
-        document.documentElement.style.setProperty(
-            '--primary',
-            theme?.data.primary || '#000000'
-        )
-        // primary 80%
-        document.documentElement.style.setProperty(
-            '--primary80',
-            `${theme?.data.primary || '#000000'}cc`
-        )
-        // primary 65%
-        document.documentElement.style.setProperty(
-            '--primary65',
-            `${theme?.data.primary || '#000000'}a6`
-        )
-        // primary 50%
-        document.documentElement.style.setProperty(
-            '--primary50',
-            `${theme?.data.primary || '#000000'}80`
-        )
-
-        // background
-        document.documentElement.style.setProperty(
-            '--background',
-            theme?.data.background || '#ffffff'
-        )
-
-        // detail
-        document.documentElement.style.setProperty(
-            '--detail',
-            theme?.data.detail || '#0047A0'
-        )
-    }, [theme])
     return (
         <>
             <Head>
@@ -92,20 +57,15 @@ function App({ Component, pageProps }) {
     )
 }
 
-App.getInitialProps = async (context) => {
-    const { router } = context
-    const { locale } = router
-
-    const query = await Client().query(
-        [Predicates.any('document.type', ['header', 'footer', 'theme'])],
-        { lang: LOCALES[locale] }
-    )
+App.getInitialProps = async () => {
+    const query = await Client().query([
+        Predicates.any('document.type', ['header', 'footer']),
+    ])
 
     const results = query?.results || {}
 
     const header = results.find(({ type }) => type === 'header')
     const footer = results.find(({ type }) => type === 'footer')
-    const theme = results.find(({ type }) => type === 'theme')
 
     return {
         pageProps: {
@@ -113,7 +73,6 @@ App.getInitialProps = async (context) => {
                 header,
                 footer,
             },
-            theme,
         },
     }
 }

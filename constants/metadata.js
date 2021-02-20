@@ -1,8 +1,8 @@
 export default {
-    title: 'Hansum Teasha',
+    title: 'Starter Next',
     description:
-        'A premium hookah lounge for shisha lovers from all around the world. Three locations in Seoul: Sinchon, Itaewon, and Anam.',
-    image: '/meta_image.jpg',
+        'A highly flexible template site using Next.js and Prismic CMS.',
+    image: '/meta_image.jpeg',
     favicon: '/favicon.ico',
-    url: 'https://hansum-phi.vercel.app/',
+    url: 'https://starter-next-lemon.vercel.app/',
 }

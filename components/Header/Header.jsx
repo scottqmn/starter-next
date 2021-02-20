@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { AnimatePresence, motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 import MenuToggle from '../MenuToggle'
-import LocaleToggle from '../LocaleToggle'
+// import LocaleToggle from '../LocaleToggle'
 import { NextImage, PrismicLink } from '../Prismic'
 import styles from './Header.module.scss'
 
@@ -90,12 +90,12 @@ const Header = ({ data }) => {
                                             </motion.div>
                                         )
                                     })}
-                                    <motion.div
+                                    {/* <motion.div
                                         className={styles.link}
                                         variants={item}
                                     >
                                         <LocaleToggle />
-                                    </motion.div>
+                                    </motion.div> */}
                                 </motion.nav>
                             )}
                         </AnimatePresence>
@@ -117,9 +117,9 @@ const Header = ({ data }) => {
                                 </div>
                             )
                         })}
-                        <div className={clsx(styles.link, styles.divider)}>
+                        {/* <div className={clsx(styles.link, styles.divider)}>
                             <LocaleToggle />
-                        </div>
+                        </div> */}
                     </nav>
                 </div>
             </div>

@@ -3,11 +3,11 @@ require('dotenv').config()
 
 module.exports = {
     i18n: {
-        locales: ['en', 'ko'],
+        locales: ['en'],
         defaultLocale: 'en',
     },
     images: {
-        domains: ['images.prismic.io', 'hansum.cdn.prismic.io'],
+        domains: ['images.prismic.io'],
     },
     webpack(config) {
         const env = Object.keys(process.env).reduce((acc, curr) => {
