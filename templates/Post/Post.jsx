@@ -1,19 +1,25 @@
 import PropTypes from 'prop-types'
-import clsx from 'clsx'
-import moment from 'moment'
+// import clsx from 'clsx'
 import {
     NextImage,
-    Metadata,
+    // Metadata,
     RichText,
     PublicationDate,
 } from '../../components/Prismic'
 import PreviewAlert from '../../components/PreviewAlert'
-import Slices from '../../components/Slices'
+import RelatedItems from '../../components/RelatedItems'
 import styles from './Post.module.scss'
 
 const Post = ({ post, preview }) => {
-    const { title, content, image, publish_date } = post.data
-    console.log('Post', post)
+    const { title, content, image, related } = post.data
+
+    const relatedPosts = related.map(({ post: relatedPost }) => {
+        return {
+            title: relatedPost?.data.title,
+            description: relatedPost?.data.description,
+            image: relatedPost?.data.image,
+        }
+    })
 
     return (
         <>
@@ -27,6 +33,9 @@ const Post = ({ post, preview }) => {
                     </div>
                     <div className='rte'>
                         <RichText content={content} />
+                    </div>
+                    <div className={styles.related}>
+                        <RelatedItems items={relatedPosts} />
                     </div>
                 </div>
             </div>

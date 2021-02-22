@@ -6,7 +6,13 @@ export const getStaticProps = async (context) => {
     const { uid } = params
     const { ref } = previewData
 
-    const queryOptions = {}
+    const queryOptions = {
+        fetchLinks: [
+            'blog_post.image',
+            'blog_post.title',
+            'blog_post.description',
+        ],
+    }
 
     if (ref) {
         queryOptions.ref = ref

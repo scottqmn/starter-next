@@ -11,7 +11,7 @@ export const prismicImagePropType = PropTypes.shape({
 })
 
 export const prismicLinkPropType = PropTypes.shape({
-    link_type: PropTypes.oneOf(['Web', 'Document']),
+    link_type: PropTypes.oneOf(['Web', 'Document', 'Media', 'Any']),
     target: PropTypes.string,
     url: PropTypes.string,
 })
