@@ -27,9 +27,10 @@ const PrismicLink = ({ children, link, ...props }) => {
                 </NextLink>
             )
         }
+        case 'Any':
         default:
             // eslint-disable-next-line no-console
-            console.warn('no link rendered', link)
+            console.warn('No link provided')
     }
 
     return children

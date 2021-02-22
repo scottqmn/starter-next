@@ -1,8 +1,6 @@
 import Page from '../templates/Page'
 import { Client } from '../utils/prismic'
 
-const Index = (props) => <Page {...props} />
-
 export const getStaticProps = async (context) => {
     const { req, preview = null, previewData = {} } = context
 
@@ -34,4 +32,4 @@ export const getStaticProps = async (context) => {
     }
 }
 
-export default Index
+export default Page

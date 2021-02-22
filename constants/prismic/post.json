@@ -19,12 +19,6 @@
                 "label": "Description"
             }
         },
-        "publish_date": {
-            "type": "Date",
-            "config": {
-                "label": "Publish Date"
-            }
-        },
         "image": {
             "type": "Image",
             "config": {

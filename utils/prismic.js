@@ -25,6 +25,8 @@ export const linkResolver = (doc) => {
     switch (doc.type) {
         case 'page':
             return doc.uid === 'index' ? '/' : `/${doc.uid}`
+        case 'blog_post':
+            return `/blog/${doc.uid}`
         default:
             // eslint-disable-next-line no-console
             console.warn('no linkResolver case:', doc)

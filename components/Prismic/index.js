@@ -5,5 +5,15 @@ import RichText from './RichText'
 import Button from './Button'
 import Map from './Map'
 import Metadata from './Metadata'
+import PublicationDate from './PublicationDate'
 
-export { Image, NextImage, PrismicLink, RichText, Button, Map, Metadata }
+export {
+    Image,
+    NextImage,
+    PrismicLink,
+    RichText,
+    Button,
+    Map,
+    Metadata,
+    PublicationDate,
+}

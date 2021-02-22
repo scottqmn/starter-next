@@ -1,0 +1,17 @@
+.heading {
+    margin-bottom: 60px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px 8px;
+
+    @media (min-width: $sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $lg) {
+        grid-gap: 24px 16px;
+    }
+}

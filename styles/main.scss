@@ -1,3 +1,4 @@
+@use 'breakpoints' as bp;
 @import './reset.scss';
 @import './containers.scss';
 @import './typography.scss';
@@ -7,13 +8,24 @@
     --background: #ffffff;
     --primary: #1cb1d1;
     --secondary: #fdb71a;
-    --heading: 'Merriweather', serif;
-    --body: 'Source Sans Pro', sans-serif;
+    // --heading: 'Merriweather', serif;
+    // --body: 'Source Sans Pro', sans-serif;
+    --heading: serif;
+    --body: sans-serif;
 }
 
 html,
 body {
-    @extend %body;
+    font-size: 12px;
+    font-family: var(--body);
+
+    @media (min-width: bp.$sm) {
+        font-size: 14px;
+    }
+
+    @media (min-width: bp.$md) {
+        font-size: 16px;
+    }
 
     color: var(--text);
     background: var(--background);

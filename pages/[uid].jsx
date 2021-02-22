@@ -1,18 +1,8 @@
-import PageTemplate from '../templates/Page'
+import Page from '../templates/Page'
 import { Client, Predicates } from '../utils/prismic'
-import LOCALES from '../constants/locales'
-
-const Page = (props) => <PageTemplate {...props} />
 
 export const getStaticProps = async (context) => {
-    const {
-        req,
-        params,
-        locale,
-        defaultLocale,
-        preview = null,
-        previewData = {},
-    } = context
+    const { req, params, preview = null, previewData = {} } = context
 
     const { ref } = previewData
 
@@ -27,10 +17,6 @@ export const getStaticProps = async (context) => {
             'location.location',
             'location.icon',
         ],
-    }
-
-    if (locale && locale !== defaultLocale) {
-        queryOptions.lang = LOCALES[locale]
     }
 
     if (ref) {

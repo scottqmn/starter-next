@@ -3,6 +3,18 @@
         "en": "ENGLISH",
         "ko": "한국어"
     },
+    "pages": {
+        "blog": {
+            "title": "Blog"
+        },
+        "news": {
+            "title": "News"
+        }
+    },
+    "post": {
+        "published": "Published: {{ date }}",
+        "edited": "Edited: {{ date }}"
+    },
     "cta": {
         "read-more": "Read More"
     }
