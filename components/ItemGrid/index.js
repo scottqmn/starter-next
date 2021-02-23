@@ -1,3 +1,3 @@
-import ItemList from './ItemList'
+import ItemGrid from './ItemGrid'
 
-export default ItemList
+export default ItemGrid

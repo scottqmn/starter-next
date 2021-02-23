@@ -7,19 +7,12 @@ import {
     PublicationDate,
 } from '../../components/Prismic'
 import PreviewAlert from '../../components/PreviewAlert'
-import RelatedItems from '../../components/RelatedItems'
+import ItemGrid from '../../components/ItemGrid'
 import styles from './Post.module.scss'
 
 const Post = ({ post, preview }) => {
     const { title, content, image, related } = post.data
-
-    const relatedPosts = related.map(({ post: relatedPost }) => {
-        return {
-            title: relatedPost?.data.title,
-            description: relatedPost?.data.description,
-            image: relatedPost?.data.image,
-        }
-    })
+    const relatedPosts = related?.map((item) => item.post) || []
 
     return (
         <>
@@ -35,7 +28,7 @@ const Post = ({ post, preview }) => {
                         <RichText content={content} />
                     </div>
                     <div className={styles.related}>
-                        <RelatedItems items={relatedPosts} />
+                        <ItemGrid items={relatedPosts} />
                     </div>
                 </div>
             </div>

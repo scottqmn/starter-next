@@ -1,7 +1,40 @@
+@import '../../styles/breakpoints';
+
 .wrap {
     display: flex;
 }
 
 .thumbnail {
     width: 300px;
+}
+
+.relatedItem {
+    display: grid;
+    grid-gap: 20px;
+
+    @media (min-width: $sm) {
+        grid-template-columns: 2fr 3fr;
+    }
+
+    @media (min-width: $md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.image {
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    height: 100%;
+}
+
+.description {
+    margin-top: 10px;
 }

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import PostItem from '../PostItem'
 import styles from './ItemGrid.module.scss'
 
+// TODO: check empty objects
 const ItemGrid = ({ heading, items }) => {
     const variants = {
         grid: {
@@ -44,7 +45,7 @@ const ItemGrid = ({ heading, items }) => {
 
 ItemGrid.propTypes = {
     heading: PropTypes.string,
-    items: PropTypes.arrayOf(PropTypes.shape(projectPropTypes)),
+    items: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default ItemGrid

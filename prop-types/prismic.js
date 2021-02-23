@@ -37,3 +37,15 @@ export const prismicSliceComponent = {
     primary: PropTypes.object,
     items: PropTypes.any, // TODO: refine
 }
+
+// types
+export const postPropType = {
+    uid: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['blog_post', 'news_post']),
+    data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: prismicImagePropType,
+        content: prismicRichTextPropType,
+    }),
+}
