@@ -11,8 +11,11 @@ const PostItem = ({ item }) => {
 
     return (
         <Link key={item.uid} href={linkResolver(item)}>
-            <a className={styles.relatedItem}>
-                <NextImage className={styles.image} image={image} />
+            <a className={styles.post}>
+                <div className={styles.thumbnail}>
+                    <div className={styles.overlay} />
+                    <NextImage className={styles.image} image={image} />
+                </div>
                 <div className={styles.info}>
                     <div className={clsx(styles.title, 't-subtitle')}>
                         {title}

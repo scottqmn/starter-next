@@ -25,7 +25,7 @@ const ItemGrid = ({ heading, items }) => {
         <div className='outer'>
             <div className='inner'>
                 {heading && (
-                    <h2 className={clsx(styles.heading, 't-subtitle')}>
+                    <h2 className={clsx(styles.heading, 't-title')}>
                         {heading}
                     </h2>
                 )}

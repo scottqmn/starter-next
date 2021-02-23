@@ -1,14 +1,6 @@
 @import '../../styles/breakpoints';
 
-.wrap {
-    display: flex;
-}
-
-.thumbnail {
-    width: 300px;
-}
-
-.relatedItem {
+.post {
     display: grid;
     grid-gap: 20px;
 
@@ -19,20 +11,68 @@
     @media (min-width: $md) {
         grid-template-columns: 1fr;
     }
+
+    &:hover {
+        .overlay {
+            opacity: 0.3;
+        }
+
+        .title {
+            color: var(--primary);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
 }
 
-.image {
+.thumbnail {
+    position: relative;
     width: 100%;
     padding-bottom: 56.25%;
     border-radius: 4px;
     overflow: hidden;
 }
 
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, var(--primary), var(--secondary));
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 1;
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .info {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     height: 100%;
+}
+
+.title {
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--secondary);
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
 }
 
 .description {

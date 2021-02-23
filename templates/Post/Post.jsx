@@ -29,9 +29,11 @@ const Post = ({ post, preview }) => {
                     </div>
                 </div>
             </div>
-            <div className={styles.related}>
-                <ItemGrid heading='Related Posts' items={relatedPosts} />
-            </div>
+            {relatedPosts?.length && (
+                <div className={styles.related}>
+                    <ItemGrid heading='Related Posts' items={relatedPosts} />
+                </div>
+            )}
         </>
     )
 }
