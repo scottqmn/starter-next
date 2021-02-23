@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import PostItem from '../PostItem'
+import { postPropType } from '../../prop-types/prismic'
 import styles from './ItemGrid.module.scss'
 
 // TODO: check empty objects
@@ -24,7 +25,9 @@ const ItemGrid = ({ heading, items }) => {
         <div className='outer'>
             <div className='inner'>
                 {heading && (
-                    <h2 className={clsx(styles.heading, 't-h2')}>{heading}</h2>
+                    <h2 className={clsx(styles.heading, 't-subtitle')}>
+                        {heading}
+                    </h2>
                 )}
                 <motion.ul
                     className={styles.grid}
@@ -45,7 +48,7 @@ const ItemGrid = ({ heading, items }) => {
 
 ItemGrid.propTypes = {
     heading: PropTypes.string,
-    items: PropTypes.arrayOf(PropTypes.object),
+    items: PropTypes.arrayOf(PropTypes.shape(postPropType)),
 }
 
 export default ItemGrid

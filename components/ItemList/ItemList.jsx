@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import PostItem from '../PostItem'
+import { postPropType } from '../../prop-types/prismic'
 import styles from './ItemList.module.scss'
 
 const ItemList = ({ heading, items }) => {
@@ -48,7 +49,7 @@ const ItemList = ({ heading, items }) => {
 
 ItemList.propTypes = {
     heading: PropTypes.string,
-    items: PropTypes.arrayOf(PropTypes.object),
+    items: PropTypes.arrayOf(PropTypes.shape(postPropType)),
 }
 
 export default ItemList

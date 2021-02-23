@@ -27,10 +27,10 @@ const Post = ({ post, preview }) => {
                     <div className='rte'>
                         <RichText content={content} />
                     </div>
-                    <div className={styles.related}>
-                        <ItemGrid items={relatedPosts} />
-                    </div>
                 </div>
+            </div>
+            <div className={styles.related}>
+                <ItemGrid heading='Related Posts' items={relatedPosts} />
             </div>
         </>
     )
