@@ -21,10 +21,11 @@ export const Client = (req = null) =>
 export const { Predicates } = Prismic
 
 export const linkResolver = (doc) => {
-    // URL for 'page' posts
     switch (doc.type) {
         case 'page':
             return doc.uid === 'index' ? '/' : `/${doc.uid}`
+        case 'blog':
+            return '/blog'
         case 'blog_post':
             return `/blog/${doc.uid}`
         default:

@@ -1,11 +1,15 @@
 import List from '../../templates/List'
 import { Client, Predicates } from '../../utils/prismic'
 
-export const getStaticProps = async (context) => {
-    const { req, preview = null, previewData = {} } = context
+export const getServerSideProps = async (context) => {
+    const { req, query, preview = null, previewData = {} } = context
     const { ref } = previewData
+    const page = query?.page ? parseInt(query.page, 10) : 1
 
-    const queryOptions = {}
+    const queryOptions = {
+        pageSize: 2,
+        page,
+    }
 
     if (ref) {
         queryOptions.ref = ref
@@ -16,10 +20,10 @@ export const getStaticProps = async (context) => {
         queryOptions
     )
 
-    const items = allPostsRes.results
+    const { results, total_pages } = allPostsRes
 
     return {
-        props: { items, preview },
+        props: { items: results, page, max: total_pages, preview },
     }
 }
 
