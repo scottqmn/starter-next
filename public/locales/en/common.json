@@ -17,5 +17,10 @@
     },
     "cta": {
         "read-more": "Read More"
+    },
+    "pagination": {
+        "next": "Next",
+        "prev": "Previous",
+        "current": "Page {{ num }}"
     }
 }

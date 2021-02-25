@@ -1,9 +1,25 @@
+@import '../../styles/breakpoints';
+
 .wrap {
-    border: 1px solid var(--primary);
     display: flex;
     justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @media (min-width: $md) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
 }
 
-.arrow {
-    width: 50px;
+.current {
+    flex: 0 0 auto;
+}
+
+.button {
+    flex: 0 0 75px;
+
+    &.next {
+        text-align: right;
+    }
 }

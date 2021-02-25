@@ -1,33 +1,36 @@
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
+import clsx from 'clsx'
 import styles from './Pagination.module.scss'
 
 const Pagination = ({ page, max }) => {
     const router = useRouter()
+    const { t } = useTranslation('common')
 
     const isFirst = page === 1
     const isLast = page === max
 
     return (
         <div className='outer'>
-            <div className='inner'>
-                <div className={styles.wrap}>
-                    <div className={styles.arrow}>
-                        {!isFirst && (
-                            <Link href={`${router.pathname}?page=${page - 1}`}>
-                                <a>Previous</a>
-                            </Link>
-                        )}
-                    </div>
-                    <div>{page}</div>
-                    <div className={styles.arrow}>
-                        {!isLast && (
-                            <Link href={`${router.pathname}?page=${page + 1}`}>
-                                <a>Next</a>
-                            </Link>
-                        )}
-                    </div>
+            <div className={clsx(styles.wrap, 'inner--sm')}>
+                <div className={clsx(styles.button, styles.prev)}>
+                    {!isFirst && (
+                        <Link href={`${router.pathname}?page=${page - 1}`}>
+                            <a>{t('pagination.prev')}</a>
+                        </Link>
+                    )}
+                </div>
+                <div className={styles.current}>
+                    {t('pagination.current', { num: page })}
+                </div>
+                <div className={clsx(styles.button, styles.next)}>
+                    {!isLast && (
+                        <Link href={`${router.pathname}?page=${page + 1}`}>
+                            <a>{t('pagination.next')}</a>
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>
