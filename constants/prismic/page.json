@@ -60,10 +60,16 @@
                                     "label": "Background Image"
                                 }
                             },
+                            "color": {
+                                "type": "Color",
+                                "config": {
+                                    "label": "Text Color"
+                                }
+                            },
                             "overlay": {
                                 "type": "Boolean",
                                 "config": {
-                                    "default_value": false,
+                                    "default_value": true,
                                     "label": "Overlay"
                                 }
                             }
