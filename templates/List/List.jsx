@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 // import { Metadata } from '../components/Prismic'
-import ItemList from '../../components/ItemList'
+import ItemGrid from '../../components/ItemGrid'
 import Pagination from '../../components/Pagination'
 
 const List = ({ items, page, max }) => {
@@ -10,7 +10,7 @@ const List = ({ items, page, max }) => {
 
     return (
         <>
-            <ItemList heading={t('pages.blog.title')} items={items} />
+            <ItemGrid heading={t('pages.blog.title')} items={items} />
             {hasPages && <Pagination page={page} max={max} />}
         </>
     )

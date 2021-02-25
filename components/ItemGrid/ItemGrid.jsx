@@ -23,7 +23,7 @@ const ItemGrid = ({ heading, items }) => {
     }
     return (
         <div className='outer'>
-            <div className='inner'>
+            <div className='inner--sm'>
                 {heading && (
                     <h2 className={clsx(styles.heading, 't-title')}>
                         {heading}
