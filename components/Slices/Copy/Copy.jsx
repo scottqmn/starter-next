@@ -1,10 +1,11 @@
+import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
 import { RichText, Button } from '../../Prismic'
 import styles from './Copy.module.scss'
 import { prismicSliceComponent } from '../../../prop-types/prismic'
 
-// TODO: default values for cta_text
 const Copy = ({ primary }) => {
+    const { t } = useTranslation('common')
     const { alignment, copy, cta_link, cta_text, title } = primary
     const hasCTA = cta_link && cta_text
 
@@ -23,7 +24,10 @@ const Copy = ({ primary }) => {
                 )}
                 {hasCTA && (
                     <div className={styles.cta}>
-                        <Button link={cta_link} text={cta_text} />
+                        <Button
+                            link={cta_link}
+                            text={cta_text || t('cta.read-more')}
+                        />
                     </div>
                 )}
             </div>

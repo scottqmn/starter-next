@@ -5,7 +5,6 @@ import PostItem from '../PostItem'
 import { postPropType } from '../../prop-types/prismic'
 import styles from './ItemGrid.module.scss'
 
-// TODO: check empty objects
 const ItemGrid = ({ heading, items }) => {
     const variants = {
         grid: {

@@ -7,13 +7,15 @@ import { asText } from '../../../utils/helpers'
 
 const PageLinks = ({ items }) => {
     const { t } = useTranslation('common')
-    const defaultCtaText = t('cta.read-more')
+    const filteredItems = items.filter(
+        ({ cta_link }) => cta_link?.link_type && cta_link.link_type !== 'Any'
+    )
 
     return (
         <div className='outer'>
             <div className={clsx('inner', 'section')}>
                 <div className={styles.itemContainer}>
-                    {items?.map((item) => {
+                    {filteredItems?.map((item) => {
                         const {
                             cta_link,
                             cta_text,
@@ -60,7 +62,9 @@ const PageLinks = ({ items }) => {
                                     <div className={styles.cta}>
                                         <Button
                                             link={cta_link}
-                                            text={cta_text || defaultCtaText}
+                                            text={
+                                                cta_text || t('cta.read-more')
+                                            }
                                         />
                                     </div>
                                 )}
