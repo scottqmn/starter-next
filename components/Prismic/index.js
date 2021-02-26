@@ -1,4 +1,3 @@
-import Image from './Image'
 import NextImage from './NextImage'
 import PrismicLink from './PrismicLink'
 import RichText from './RichText'
@@ -8,7 +7,6 @@ import Metadata from './Metadata'
 import PublicationDate from './PublicationDate'
 
 export {
-    Image,
     NextImage,
     PrismicLink,
     RichText,

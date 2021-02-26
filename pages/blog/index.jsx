@@ -7,7 +7,7 @@ export const getServerSideProps = async (context) => {
     const page = query?.page ? parseInt(query.page, 10) : 1
 
     const queryOptions = {
-        pageSize: 2,
+        pageSize: 12,
         page,
     }
 
