@@ -9,7 +9,17 @@ import { NextImage, PrismicLink } from '../Prismic'
 import styles from './Header.module.scss'
 
 const Header = ({ data }) => {
-    const { links, logo, logo_link } = data
+    const { items, logo, logo_link } = data
+
+    const links = items.map(({ item }) => {
+        const { link, text, dropdown } = item.data
+        // Check empty links
+        const filteredDropdown = dropdown.filter(
+            ({ dropdown_link }) => dropdown_link?.link_type !== 'Any'
+        )
+        return { link, text, dropdown: filteredDropdown }
+    })
+
     const router = useRouter()
 
     const [menuOpen, setMenuOpen] = useState(false)
@@ -76,7 +86,7 @@ const Header = ({ data }) => {
                                     exit='closing'
                                     variants={list}
                                 >
-                                    {links?.map(({ link, link_text }) => {
+                                    {links?.map(({ link, text, dropdown }) => {
                                         return (
                                             <motion.div
                                                 key={link.id || link.url}
@@ -84,7 +94,7 @@ const Header = ({ data }) => {
                                                 variants={item}
                                             >
                                                 <PrismicLink link={link}>
-                                                    {link_text}
+                                                    {text}
                                                 </PrismicLink>
                                             </motion.div>
                                         )
@@ -98,15 +108,43 @@ const Header = ({ data }) => {
             <div className='outer'>
                 <div className={clsx(styles.row, 'inner')}>
                     <nav className={clsx(styles.navRow, 't-label')}>
-                        {links?.map(({ link, link_text }) => {
+                        {links?.map(({ link, text, dropdown }) => {
+                            const hasDropdown = dropdown.length > 0
+
                             return (
                                 <div
                                     key={link.id || link.url}
-                                    className={styles.link}
+                                    className={styles.navItem}
                                 >
-                                    <PrismicLink link={link}>
-                                        {link_text}
-                                    </PrismicLink>
+                                    <div className={styles.link}>
+                                        <PrismicLink link={link}>
+                                            {text}
+                                        </PrismicLink>
+                                    </div>
+                                    {hasDropdown && (
+                                        <div className={styles.navDropdown}>
+                                            {dropdown.map(
+                                                ({
+                                                    dropdown_link,
+                                                    dropdown_text,
+                                                }) => (
+                                                    <div
+                                                        key={
+                                                            dropdown_link.id ||
+                                                            dropdown_link.url
+                                                        }
+                                                        className={styles.link}
+                                                    >
+                                                        <PrismicLink
+                                                            link={dropdown_link}
+                                                        >
+                                                            {dropdown_text}
+                                                        </PrismicLink>
+                                                    </div>
+                                                )
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
                             )
                         })}

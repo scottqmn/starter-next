@@ -22,6 +22,22 @@
                 "label": "Logo Link"
             }
         },
+        "items": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "item": {
+                        "type": "Link",
+                        "config": {
+                            "select": "document",
+                            "customtypes": ["header_item"],
+                            "label": "Header Item"
+                        }
+                    }
+                },
+                "label": "Header Items"
+            }
+        },
         "links": {
             "type": "Group",
             "config": {

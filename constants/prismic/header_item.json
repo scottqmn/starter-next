@@ -1,0 +1,38 @@
+{
+    "Main": {
+        "link": {
+            "type": "Link",
+            "config": {
+                "label": "Link",
+                "allowTargetBlank": true
+            }
+        },
+        "text": {
+            "type": "Text",
+            "config": {
+                "label": "Text"
+            }
+        },
+        "dropdown": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "dropdown_link": {
+                        "type": "Link",
+                        "config": {
+                            "allowTargetBlank": true,
+                            "label": "Link"
+                        }
+                    },
+                    "dropdown_text": {
+                        "type": "Text",
+                        "config": {
+                            "label": "Text"
+                        }
+                    }
+                },
+                "label": "Dropdown"
+            }
+        }
+    }
+}

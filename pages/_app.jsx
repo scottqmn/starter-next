@@ -58,9 +58,16 @@ function App({ Component, pageProps }) {
 }
 
 App.getInitialProps = async () => {
-    const query = await Client().query([
-        Predicates.any('document.type', ['header', 'footer']),
-    ])
+    const query = await Client().query(
+        [Predicates.any('document.type', ['header', 'footer'])],
+        {
+            fetchLinks: [
+                'header_item.link',
+                'header_item.text',
+                'header_item.dropdown',
+            ],
+        }
+    )
 
     const results = query?.results || {}
 
