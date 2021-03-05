@@ -1,13 +1,13 @@
 {
     "Main": {
-        "link": {
+        "main_link": {
             "type": "Link",
             "config": {
                 "label": "Link",
                 "allowTargetBlank": true
             }
         },
-        "text": {
+        "main_text": {
             "type": "Text",
             "config": {
                 "label": "Text"
@@ -17,14 +17,14 @@
             "type": "Group",
             "config": {
                 "fields": {
-                    "dropdown_link": {
+                    "link": {
                         "type": "Link",
                         "config": {
                             "allowTargetBlank": true,
                             "label": "Link"
                         }
                     },
-                    "dropdown_text": {
+                    "text": {
                         "type": "Text",
                         "config": {
                             "label": "Text"

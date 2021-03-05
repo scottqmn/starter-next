@@ -1,0 +1,38 @@
+.navItem {
+    box-sizing: content-box;
+    padding-right: 1.4em;
+    position: relative;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.4em;
+    height: 1.4em;
+
+    svg {
+        font-size: 1.4em;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &.open {
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.navDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}

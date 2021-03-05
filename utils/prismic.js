@@ -36,3 +36,6 @@ export const linkResolver = (doc) => {
     // Backup for all other types
     return '/'
 }
+
+export const isEmptyLink = (link) =>
+    !link?.link_type || link.link_type === 'Any'

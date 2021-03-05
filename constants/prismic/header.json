@@ -22,41 +22,20 @@
                 "label": "Logo Link"
             }
         },
-        "items": {
+        "groups": {
             "type": "Group",
             "config": {
                 "fields": {
-                    "item": {
+                    "group": {
                         "type": "Link",
                         "config": {
                             "select": "document",
-                            "customtypes": ["header_item"],
-                            "label": "Header Item"
+                            "customtypes": ["nav_group"],
+                            "label": "Group"
                         }
                     }
                 },
-                "label": "Header Items"
-            }
-        },
-        "links": {
-            "type": "Group",
-            "config": {
-                "fields": {
-                    "link": {
-                        "type": "Link",
-                        "config": {
-                            "label": "Link",
-                            "allowTargetBlank": true
-                        }
-                    },
-                    "link_text": {
-                        "type": "Text",
-                        "config": {
-                            "label": "Link Text"
-                        }
-                    }
-                },
-                "label": "Links"
+                "label": "Nav Groups"
             }
         }
     }

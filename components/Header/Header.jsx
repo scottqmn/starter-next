@@ -5,19 +5,35 @@ import { useRouter } from 'next/router'
 import { AnimatePresence, motion } from 'framer-motion'
 import FocusTrap from 'focus-trap-react'
 import MenuToggle from '../MenuToggle'
+import HeaderNavGroup from '../HeaderNavGroup'
 import { NextImage, PrismicLink } from '../Prismic'
+import { isEmptyLink } from '../../utils/prismic'
 import styles from './Header.module.scss'
 
 const Header = ({ data }) => {
-    const { items, logo, logo_link } = data
+    const { groups, logo, logo_link } = data
 
-    const links = items.map(({ item }) => {
-        const { link, text, dropdown } = item.data
+    const links = groups.map(({ group }) => {
+        const { main_link, main_text, dropdown } = group.data
+
+        const hasMain = !isEmptyLink(main_link)
+
         // Check empty links
         const filteredDropdown = dropdown.filter(
-            ({ dropdown_link }) => dropdown_link?.link_type !== 'Any'
+            ({ link }) => !isEmptyLink(link)
         )
-        return { link, text, dropdown: filteredDropdown }
+
+        const hasDropdown = filteredDropdown.length > 0
+
+        console.log('main', hasMain, 'dropdown', hasDropdown)
+
+        return {
+            main_link,
+            main_text,
+            hasMain,
+            dropdown: filteredDropdown,
+            hasDropdown,
+        }
     })
 
     const router = useRouter()
@@ -86,19 +102,29 @@ const Header = ({ data }) => {
                                     exit='closing'
                                     variants={list}
                                 >
-                                    {links?.map(({ link, text, dropdown }) => {
-                                        return (
-                                            <motion.div
-                                                key={link.id || link.url}
-                                                className={styles.link}
-                                                variants={item}
-                                            >
-                                                <PrismicLink link={link}>
-                                                    {text}
-                                                </PrismicLink>
-                                            </motion.div>
-                                        )
-                                    })}
+                                    {links?.map(
+                                        ({
+                                            main_link,
+                                            main_text,
+                                            dropdown,
+                                            hasMain,
+                                            hasDropdown,
+                                        }) => {
+                                            return (
+                                                <motion.div
+                                                    key={main_text}
+                                                    className={styles.link}
+                                                    variants={item}
+                                                >
+                                                    <PrismicLink
+                                                        link={main_link}
+                                                    >
+                                                        {main_text}
+                                                    </PrismicLink>
+                                                </motion.div>
+                                            )
+                                        }
+                                    )}
                                 </motion.nav>
                             )}
                         </AnimatePresence>
@@ -108,46 +134,9 @@ const Header = ({ data }) => {
             <div className='outer'>
                 <div className={clsx(styles.row, 'inner')}>
                     <nav className={clsx(styles.navRow, 't-label')}>
-                        {links?.map(({ link, text, dropdown }) => {
-                            const hasDropdown = dropdown.length > 0
-
-                            return (
-                                <div
-                                    key={link.id || link.url}
-                                    className={styles.navItem}
-                                >
-                                    <div className={styles.link}>
-                                        <PrismicLink link={link}>
-                                            {text}
-                                        </PrismicLink>
-                                    </div>
-                                    {hasDropdown && (
-                                        <div className={styles.navDropdown}>
-                                            {dropdown.map(
-                                                ({
-                                                    dropdown_link,
-                                                    dropdown_text,
-                                                }) => (
-                                                    <div
-                                                        key={
-                                                            dropdown_link.id ||
-                                                            dropdown_link.url
-                                                        }
-                                                        className={styles.link}
-                                                    >
-                                                        <PrismicLink
-                                                            link={dropdown_link}
-                                                        >
-                                                            {dropdown_text}
-                                                        </PrismicLink>
-                                                    </div>
-                                                )
-                                            )}
-                                        </div>
-                                    )}
-                                </div>
-                            )
-                        })}
+                        {groups?.map(({ group }) => (
+                            <HeaderNavGroup key={group.id} group={group} />
+                        ))}
                     </nav>
                 </div>
             </div>

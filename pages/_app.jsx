@@ -62,9 +62,9 @@ App.getInitialProps = async () => {
         [Predicates.any('document.type', ['header', 'footer'])],
         {
             fetchLinks: [
-                'header_item.link',
-                'header_item.text',
-                'header_item.dropdown',
+                'nav_group.main_link',
+                'nav_group.main_text',
+                'nav_group.dropdown',
             ],
         }
     )
