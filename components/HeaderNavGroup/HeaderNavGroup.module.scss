@@ -34,5 +34,8 @@
 .navDropdown {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -1em;
+    background-color: var(--background);
+    padding: 0.5em 1em;
+    border-radius: 4px;
 }
