@@ -6,6 +6,8 @@ import Head from 'next/head'
 import 'normalize.css'
 import '../styles/main.scss'
 import '../styles/typography.scss'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import Layout from '../components/Layout'
 import * as gtag from '../utils/gtag'
 import '../utils/i18n'
@@ -16,6 +18,17 @@ import METADATA from '../constants/metadata'
 
 function App({ Component, pageProps }) {
     const { layout, ...otherProps } = pageProps
+
+    const theme = createMuiTheme({
+        palette: {
+            primary: {
+                main: '#1cb1d1',
+            },
+            secondary: {
+                main: '#fdb71a',
+            },
+        },
+    })
 
     return (
         <>
@@ -50,9 +63,13 @@ function App({ Component, pageProps }) {
                 <meta name='twitter:image' content={METADATA.image} />
                 <meta name='twitter:card' content='summary' />
             </Head>
-            <Layout data={layout}>
-                <Component {...otherProps} />
-            </Layout>
+
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Layout data={layout}>
+                    <Component {...otherProps} />
+                </Layout>
+            </ThemeProvider>
         </>
     )
 }

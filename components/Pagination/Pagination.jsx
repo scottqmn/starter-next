@@ -1,45 +1,40 @@
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
-import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
+import MuiPagination from '@material-ui/lab/Pagination'
 import styles from './Pagination.module.scss'
 
-const Pagination = ({ page, max }) => {
+const Pagination = ({ page, count }) => {
     const router = useRouter()
-    const { t } = useTranslation('common')
 
-    const isFirst = page === 1
-    const isLast = page === max
+    const handleChange = (e, selectedPage) => {
+        router.replace(
+            `${router.pathname}${
+                selectedPage === 1 ? '' : `?page=${selectedPage}`
+            }`
+        )
+    }
 
     return (
-        <div className='outer'>
-            <div className={clsx(styles.wrap, 'inner--sm')}>
-                <div className={clsx(styles.button, styles.prev)}>
-                    {!isFirst && (
-                        <Link href={`${router.pathname}?page=${page - 1}`}>
-                            <a>{t('pagination.prev')}</a>
-                        </Link>
-                    )}
-                </div>
-                <div className={styles.current}>
-                    {t('pagination.current', { num: page })}
-                </div>
-                <div className={clsx(styles.button, styles.next)}>
-                    {!isLast && (
-                        <Link href={`${router.pathname}?page=${page + 1}`}>
-                            <a>{t('pagination.next')}</a>
-                        </Link>
-                    )}
+        count > 1 && (
+            <div className='outer'>
+                <div className={clsx(styles.wrap, 'inner--sm')}>
+                    <MuiPagination
+                        page={page}
+                        count={count}
+                        onChange={handleChange}
+                        color='primary'
+                        classes={{ ul: styles.list }}
+                    />
                 </div>
             </div>
-        </div>
+        )
     )
 }
 
 Pagination.propTypes = {
     page: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired,
+    count: PropTypes.number.isRequired,
 }
 
 export default Pagination

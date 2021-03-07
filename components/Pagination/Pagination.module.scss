@@ -1,8 +1,6 @@
 @import '../../styles/breakpoints';
 
 .wrap {
-    display: flex;
-    justify-content: space-between;
     padding-top: 40px;
     padding-bottom: 40px;
 
@@ -12,14 +10,6 @@
     }
 }
 
-.current {
-    flex: 0 0 auto;
-}
-
-.button {
-    flex: 0 0 75px;
-
-    &.next {
-        text-align: right;
-    }
+.list {
+    justify-content: center;
 }

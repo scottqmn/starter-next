@@ -23,7 +23,7 @@ export const getServerSideProps = async (context) => {
     const { results, total_pages } = allPostsRes
 
     return {
-        props: { items: results, page, max: total_pages, preview },
+        props: { items: results, page, count: total_pages, preview },
     }
 }
 

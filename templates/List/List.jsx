@@ -4,14 +4,13 @@ import { useTranslation } from 'react-i18next'
 import ItemGrid from '../../components/ItemGrid'
 import Pagination from '../../components/Pagination'
 
-const List = ({ items, page, max }) => {
+const List = ({ items, page, count }) => {
     const { t } = useTranslation('common')
-    const hasPages = max > 1
 
     return (
         <>
             <ItemGrid heading={t('pages.blog.title')} items={items} />
-            {hasPages && <Pagination page={page} max={max} />}
+            <Pagination page={page} count={count} />
         </>
     )
 }
@@ -19,7 +18,7 @@ const List = ({ items, page, max }) => {
 List.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object),
     page: PropTypes.number,
-    max: PropTypes.number,
+    count: PropTypes.number,
 }
 
 export default List
