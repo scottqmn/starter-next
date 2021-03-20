@@ -66,7 +66,7 @@ const HeaderNavGroup = ({ group }) => {
 
 HeaderNavGroup.propTypes = {
     group: PropTypes.shape({
-        data: {
+        data: PropTypes.shape({
             main_link: prismicLinkPropType,
             main_text: PropTypes.string.isRequired,
             dropdown: PropTypes.arrayOf(
@@ -75,7 +75,7 @@ HeaderNavGroup.propTypes = {
                     text: PropTypes.string,
                 })
             ),
-        },
+        }),
     }),
 }
 
