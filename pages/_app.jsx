@@ -1,23 +1,23 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
-import { useEffect } from 'react'
-import Router from 'next/router'
-import Head from 'next/head'
+// import { useEffect } from 'react'
+// import Router from 'next/router'
 import 'normalize.css'
 import '../styles/main.scss'
 import '../styles/typography.scss'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Layout from '../components/Layout'
-import * as gtag from '../utils/gtag'
+import PreviewAlert from '../components/PreviewAlert'
+import { Metadata } from '../components/Prismic'
+// import * as gtag from '../utils/gtag'
 import '../utils/i18n'
 import { Client, Predicates } from '../utils/prismic'
-import METADATA from '../constants/metadata'
 
 // Router.events.on('routeChangeComplete', (url) => gtag.pageview(url))
 
 function App({ Component, pageProps }) {
-    const { layout, ...otherProps } = pageProps
+    const { layout, preview, prismicData } = pageProps
 
     const theme = createMuiTheme({
         palette: {
@@ -32,42 +32,12 @@ function App({ Component, pageProps }) {
 
     return (
         <>
-            <Head>
-                <title>{METADATA.title}</title>
-                <meta charSet='utf-8' />
-                <meta
-                    httpEquiv='Content-Type'
-                    content='text/html; charset=utf-8'
-                />
-                <meta
-                    name='viewport'
-                    content='width=device-width, initial-scale=1'
-                />
-                <meta name='description' content={METADATA.description} />
-                <link rel='icon' href={METADATA.favicon} />
-                {/* Open Graph/Facebook */}
-                <meta property='og:title' content={METADATA.title} />
-                <meta
-                    property='og:description'
-                    content={METADATA.description}
-                />
-                <meta property='og:image' content={METADATA.image} />
-                <meta property='og:url' content={METADATA.url} />
-                <meta property='og:type' content='website' />
-                {/* Twitter */}
-                <meta name='twitter:title' content={METADATA.title} />
-                <meta
-                    name='twitter:description'
-                    content={METADATA.description}
-                />
-                <meta name='twitter:image' content={METADATA.image} />
-                <meta name='twitter:card' content='summary' />
-            </Head>
-
+            <Metadata {...prismicData.page.data} />
+            <PreviewAlert preview={preview} />
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <Layout data={layout}>
-                    <Component {...otherProps} />
+                    <Component {...pageProps} />
                 </Layout>
             </ThemeProvider>
         </>
