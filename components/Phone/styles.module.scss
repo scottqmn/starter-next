@@ -1,6 +1,10 @@
+// dimensions: 5.7 x 2.79
+// screen: 5.8-inch; 2,436x1,125 pixels
+
 .outer {
     border: 5px var(--black, #000) solid;
     border-radius: 25px;
+    color: var(--black);
     padding-bottom: 200%;
     position: relative;
     width: 100%;
