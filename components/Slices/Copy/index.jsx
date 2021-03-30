@@ -10,7 +10,7 @@ const Copy = ({ primary }) => {
     const hasCTA = cta_link && cta_text
 
     return (
-        <div className={clsx('outer', alignment === 'center' && 'ta-center')}>
+        <div className={clsx(alignment === 'center' && 'ta-center')}>
             <div className={clsx(styles.inner, 'inner--xs', 'section')}>
                 {title && (
                     <div className={clsx(styles.title, 't-subtitle')}>

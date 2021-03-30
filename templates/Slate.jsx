@@ -1,11 +1,7 @@
 import PropTypes from 'prop-types'
 
 const Slate = ({ prismicData }) => {
-    return (
-        <div className='outer'>
-            <div className='inner'></div>
-        </div>
-    )
+    return <div />
 }
 
 Slate.propTypes = {

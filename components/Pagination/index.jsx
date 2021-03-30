@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
-import clsx from 'clsx'
 import MuiPagination from '@material-ui/lab/Pagination'
 import styles from './styles.module.scss'
 
@@ -17,16 +16,14 @@ const Pagination = ({ page, count }) => {
 
     return (
         count > 1 && (
-            <div className='outer'>
-                <div className={clsx(styles.wrap, 'inner--sm')}>
-                    <MuiPagination
-                        page={page}
-                        count={count}
-                        onChange={handleChange}
-                        color='primary'
-                        classes={{ ul: styles.list }}
-                    />
-                </div>
+            <div className={styles.wrap}>
+                <MuiPagination
+                    page={page}
+                    count={count}
+                    onChange={handleChange}
+                    color='primary'
+                    classes={{ ul: styles.list }}
+                />
             </div>
         )
     )

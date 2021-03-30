@@ -54,20 +54,6 @@
     font-weight: 700;
 }
 
-%body {
-    font-size: 12px;
-    font-family: var(--body);
-    line-height: 2.2em;
-
-    @media (min-width: bp.$sm) {
-        font-size: 14px;
-    }
-
-    @media (min-width: bp.$md) {
-        font-size: 16px;
-    }
-}
-
 %title {
     font-size: 28px;
     font-family: var(--body);
@@ -86,6 +72,20 @@
 %subtitle {
     font-size: 24px;
     font-family: var(--body);
+}
+
+%body {
+    font-size: 12px;
+    font-family: var(--body);
+    line-height: 2.2em;
+
+    @media (min-width: bp.$sm) {
+        font-size: 14px;
+    }
+
+    @media (min-width: bp.$md) {
+        font-size: 16px;
+    }
 }
 
 %label {
@@ -118,14 +118,14 @@
 .t-h6 {
     @extend %h6;
 }
-.t-body {
-    @extend %body;
-}
 .t-title {
     @extend %title;
 }
 .t-subtitle {
     @extend %subtitle;
+}
+.t-body {
+    @extend %body;
 }
 .t-label {
     @extend %label;

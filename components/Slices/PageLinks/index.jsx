@@ -12,66 +12,56 @@ const PageLinks = ({ items }) => {
     )
 
     return (
-        <div className='outer'>
-            <div className={clsx('inner', 'section')}>
-                <div className={styles.itemContainer}>
-                    {filteredItems?.map((item) => {
-                        const {
-                            cta_link,
-                            cta_text,
-                            description,
-                            image,
-                            title,
-                        } = item
+        <div className='section'>
+            <div className={styles.itemContainer}>
+                {filteredItems?.map((item) => {
+                    const {
+                        cta_link,
+                        cta_text,
+                        description,
+                        image,
+                        title,
+                    } = item
 
-                        const hasCTA = cta_link
+                    const hasCTA = cta_link
 
-                        return (
-                            <div
-                                key={asText(title)}
-                                className={styles.itemWrap}
-                            >
-                                {image && (
-                                    <NextImage
-                                        image={image}
-                                        className={styles.image}
+                    return (
+                        <div key={asText(title)} className={styles.itemWrap}>
+                            {image && (
+                                <NextImage
+                                    image={image}
+                                    className={styles.image}
+                                />
+                            )}
+                            {title && (
+                                <div
+                                    className={clsx(styles.title, 't-subtitle')}
+                                >
+                                    <RichText content={title} />
+                                </div>
+                            )}
+                            {description && (
+                                <div
+                                    className={clsx(
+                                        styles.desc,
+                                        't-body',
+                                        'c-primary65'
+                                    )}
+                                >
+                                    {description}
+                                </div>
+                            )}
+                            {hasCTA && (
+                                <div className={styles.cta}>
+                                    <Button
+                                        link={cta_link}
+                                        text={cta_text || t('cta.read-more')}
                                     />
-                                )}
-                                {title && (
-                                    <div
-                                        className={clsx(
-                                            styles.title,
-                                            't-subtitle'
-                                        )}
-                                    >
-                                        <RichText content={title} />
-                                    </div>
-                                )}
-                                {description && (
-                                    <div
-                                        className={clsx(
-                                            styles.desc,
-                                            't-body',
-                                            'c-primary65'
-                                        )}
-                                    >
-                                        {description}
-                                    </div>
-                                )}
-                                {hasCTA && (
-                                    <div className={styles.cta}>
-                                        <Button
-                                            link={cta_link}
-                                            text={
-                                                cta_text || t('cta.read-more')
-                                            }
-                                        />
-                                    </div>
-                                )}
-                            </div>
-                        )
-                    })}
-                </div>
+                                </div>
+                            )}
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

@@ -25,8 +25,6 @@ const Header = ({ data }) => {
 
         const hasDropdown = filteredDropdown.length > 0
 
-        console.log('main', hasMain, 'dropdown', hasDropdown)
-
         return {
             main_link,
             main_text,

@@ -17,16 +17,18 @@ const Post = ({ post, preview }) => {
     return (
         <>
             <PreviewAlert preview={preview} />
-            {image && <NextImage image={image} className={styles.hero} />}
-            <div className='outer'>
-                <div className='inner--sm'>
-                    <div className={styles.info}>
-                        <h1 className='t-title'>{title}</h1>
-                        <PublicationDate doc={post} />
-                    </div>
-                    <div className='rte'>
-                        <RichText content={content} />
-                    </div>
+            {image && (
+                <div className='full-width'>
+                    <NextImage image={image} className={styles.hero} />
+                </div>
+            )}
+            <div>
+                <div className={styles.info}>
+                    <h1 className='t-title'>{title}</h1>
+                    <PublicationDate doc={post} />
+                </div>
+                <div className='rte'>
+                    <RichText content={content} />
                 </div>
             </div>
             {relatedPosts?.length && (

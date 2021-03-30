@@ -21,26 +21,22 @@ const ItemGrid = ({ heading, items }) => {
         },
     }
     return (
-        <div className='outer'>
-            <div className='inner--sm'>
-                {heading && (
-                    <h2 className={clsx(styles.heading, 't-title')}>
-                        {heading}
-                    </h2>
-                )}
-                <motion.ul
-                    className={styles.grid}
-                    initial='hidden'
-                    animate='visible'
-                    variants={variants.grid}
-                >
-                    {items.map((item) => (
-                        <motion.li key={item.uid} variants={variants.item}>
-                            <PostItem item={item} />
-                        </motion.li>
-                    ))}
-                </motion.ul>
-            </div>
+        <div>
+            {heading && (
+                <h2 className={clsx(styles.heading, 't-title')}>{heading}</h2>
+            )}
+            <motion.ul
+                className={styles.grid}
+                initial='hidden'
+                animate='visible'
+                variants={variants.grid}
+            >
+                {items.map((item) => (
+                    <motion.li key={item.uid} variants={variants.item}>
+                        <PostItem item={item} />
+                    </motion.li>
+                ))}
+            </motion.ul>
         </div>
     )
 }

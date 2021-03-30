@@ -18,7 +18,7 @@ const Banner = ({ primary }) => {
 
     return (
         <div
-            className={clsx(styles.outer, 'outer')}
+            className={clsx(styles.outer, 'full-width')}
             style={{ '--text': color }}
         >
             {bg_image && <NextImage image={bg_image} className={styles.bg} />}
@@ -30,14 +30,7 @@ const Banner = ({ primary }) => {
                     )}
                 />
             )}
-            <div
-                className={clsx(
-                    styles.inner,
-                    'inner--sm',
-                    'section',
-                    'ta-center'
-                )}
-            >
+            <div className={clsx(styles.inner, 'section', 'ta-center')}>
                 {label && (
                     <div className={clsx(styles.label, 't-label')}>{label}</div>
                 )}

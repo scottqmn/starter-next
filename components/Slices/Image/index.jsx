@@ -6,7 +6,7 @@ import { prismicSliceComponent } from '../../../prop-types/prismic'
 const Image = ({ primary }) => {
     const { image } = primary
     return (
-        <div className={clsx(styles.outer, 'outer', 'section')}>
+        <div className={clsx(styles.outer, 'section')}>
             {image && <NextImage image={image} className={styles.image} />}
         </div>
     )
