@@ -1,22 +1,14 @@
 import PropTypes from 'prop-types'
-// import clsx from 'clsx'
-import {
-    NextImage,
-    // Metadata,
-    RichText,
-    PublicationDate,
-} from '../../components/Prismic'
-import PreviewAlert from '../../components/PreviewAlert'
+import { NextImage, RichText, PublicationDate } from '../../components/Prismic'
 import ItemGrid from '../../components/ItemGrid'
-import styles from './Post.module.scss'
+import styles from './styles.module.scss'
 
-const Post = ({ post, preview }) => {
+const Post = ({ post }) => {
     const { title, content, image, related } = post.data
     const relatedPosts = related?.map((item) => item.post) || []
 
     return (
         <>
-            <PreviewAlert preview={preview} />
             {image && (
                 <div className='full-width'>
                     <NextImage image={image} className={styles.hero} />
@@ -40,6 +32,6 @@ const Post = ({ post, preview }) => {
     )
 }
 
-Post.propTypes = { post: PropTypes.object, preview: PropTypes.bool }
+Post.propTypes = { post: PropTypes.object }
 
 export default Post
