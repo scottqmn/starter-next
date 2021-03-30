@@ -32,7 +32,7 @@ function App({ Component, pageProps }) {
 
     return (
         <>
-            <Metadata {...prismicData.page.data} />
+            <Metadata {...prismicData?.page.data} />
             <PreviewAlert preview={preview} />
             <ThemeProvider theme={theme}>
                 <CssBaseline />
